@@ -1,0 +1,72 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+
+  <title>AI Assessment Tool</title>
+<style>
+  .btn-get-started1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 1px;
+    display: block;
+    padding: 15px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 15px;
+    color: #fff;
+    background: #f55b2d;
+  }
+  .btn-get-started1:hover{-
+    color:#18d26e ;
+    background-color: white;
+  }
+</style>
+  
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">AI Assessment Tool</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <!--<ol class="carousel-indicators"></ol>-->
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/2.jpg' %}" alt=""></div>
+            <div class="carousel-container"> 
+              <h3 class="select">Select any one option</h3> <br>
+              <div class="carousel-content">            
+                <a href="{% url 'atl_login' %}" href="#featured-services" class="btn-get-started1 scrollto">ATL</a><br/>
+				        <a href="{% url 'cbse_login' %}" href="#featured-services" class="btn-get-started1 scrollto">CBSE</a><br/>            
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+{% endblock %}

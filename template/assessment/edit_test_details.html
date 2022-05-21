@@ -1,0 +1,549 @@
+{% extends './base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %} 
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+#grad1 {
+    background-color: : #9C27B0;
+    background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+#msform fieldset .form-card {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: #9E9E9E
+}
+
+
+#msform input,
+#msform textarea ,#msform select{
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 16px;
+    letter-spacing: 1px;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+
+
+}
+#msform label{
+    border: none;
+
+} 
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid skyblue;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: auto;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid skyblue
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f023"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f09d"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: skyblue
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204;
+    height: 104;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+.invalid-feedback{
+    color:red;
+    font-size: 14px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#cat-section{
+    margin-bottom: 10px;
+}
+form .error{
+    color:red;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-12  text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Test Details</strong></h2>
+                <!--<p>Fill all form field to go to next step</p>-->
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform"  class="needs-validation" novalidate method="post"  enctype= 'multipart/form-data'>
+                            {% csrf_token %}
+
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                               <li class="active" id="account"><strong>Test Details</strong></li>
+                                <li id="personal"><strong>Add Category</strong></li>
+                                <li id="payment"><strong>Add Question</strong></li>
+                                <li id="confirm"><strong>Launch Test</strong></li>
+                            </ul> <!-- fieldsets -->
+                            
+                            <fieldset>
+                                              
+                                <div class="form-card">
+                                    <h2 class="fs-title">Test Details</h2> 
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class='input-group date' >
+                                                <label class="label-set" for="test-name">Select Year*</label>
+                                                <input type="text" id="yearPicker" required value="{{test.test_year}}">
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="col-4">                                
+                                            <label class="label-set" for="test-name">Quater*</label>
+                                            <select class="form-control"  id="quater" required>
+                                                <option value="Quater1">Quater 1</option>
+                                                <option value="Quater2">Quater 2</option>
+                                                <option value="Quater3">Quater 3</option>
+                                                <option value="Quater4">Quater 4</option>
+                                                <option value="nonatl">Non ATL</option>
+                                            </select>
+                                            
+                                        </div>
+                                        <div class="col-4">                                
+                                            <label class="label-set" for="test-name">Package*</label>
+                                            <select class="form-control"  id="package" required>
+                                                <option value="P1">P1</option>
+                                                <option value="P2">P2</option>
+                                                <option value="P3">P3</option>
+                                                <option value="P4">P4</option>
+                                                <option value="nonatl">Non ATL</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                    
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label class="label-set"for="exampleInputEmail1" class="label-set">Standard*</label>
+
+                                               <select class="form-control " id="standard" required>
+                                                    {% for i in stand %}
+                                                    <option value="{{i.id}}"> {{i.standard_name}}</option>
+                                                    {% endfor %}
+                                              </select>
+
+
+                                        </div>
+                                      <div class="col-4">
+                                             <label class="label-set" for="date">Test Date Time*</label>
+                                              <input type="datetime-local" class="form-control" id="date" name="date" required>
+                                    
+
+                                       </div>
+
+                                        <div class="col-4">
+                                            <label class="label-set" for="duration">Test Duration*(min) </label>
+                                            <input type="integer" class="form-control" id="duration" name="duration"   required>
+                                       </div>
+                                    </div>   
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label class="label-set" for="lang">Test Languages*</label>
+                                             <select name="lang" id="lang" class="form-control" multiple  size="3" required>
+                                                {% for i in lang %}
+                                                <option value="{{i.lang_name}}">{{i.lang_name}}</option>
+                                                {% endfor %}
+                                             </select>
+                                        
+                                             
+                                       </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="next" id="basic-button" class="next action-button" value="Go Next and Save" />
+                            
+
+                            </fieldset>
+                            
+                            
+                            
+                            <fieldset>
+                                <div class="form-card">
+                                    
+                                    <h2 class="fs-title">Question Categories</h2>
+                                    <p> Note: A test category is a group of similar questions which randomly delievers a fixed number of questions to the candidates </p>
+                                    <div id="cat-section">
+                                    <div class="row" class="cat-item" style="border-style: solid;border-width:1px;margin-bottom: 10px;">
+
+                                
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <button type="button" class="delete-cat"><span class="glyphicon glyphicon-remove" style="color:red "></span></button>
+                                            <label class="label-set"for="exampleInputEmail1" class="label-set">Question Category</label>
+
+                                            <input type="text" name="category_name1" class="cat_name" placeholder="Category Name" required="Enter Category Name"/> 
+                                            
+
+                                        </div>
+                                        <div class="col-lg-3 col-md-3  col-sm-6">
+                                            <label class="label-set"for="exampleInputEmail1" class="label-set">Question to Deliever</label>
+                                            <input type="number" name="no_question1" class="no_question" required/>
+                                            <div class="invalid-feedback">Please select Test Duration</div>
+ 
+                                        </div>
+                                        <div class="col-lg-3 col-md-3  col-sm-6">
+                                            <label class="label-set"for="exampleInputEmail1" class="label-set">Max score per question*</label>
+                                            <input type="number" name="max_score1" class="max_mark"  required/>
+                                            <div class="invalid-feedback">Please select Test Duration</div>
+                                            <input type="hidden" class="cat_id" value="1">
+                                            
+                                        </div>
+
+                                        
+                                    </div>
+                                        <input type="hidden" id="cat_num" value="1">
+                            
+                                    </div>
+                                    <button type="button" id="add_cat" class="btn btn-primary">+ Category</button>
+                                 
+                                </div> 
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                                <input type="button" name="next" id="category-create" class="next action-button" value="Go Next and Save" />
+                            
+                            </fieldset>
+                            
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Questions</h2>
+                                        <div class="question-add">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="label-set" class="label-set">Select Category</label>
+                                                    <select class="list-dt" id="cat-select" name="expmonth" required>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                    </select> 
+                                                                <input type="hidden" id="exam_no" value="1">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="label-set" class="label-set">Action</label>
+                                                        <select class="list-dt" id="action_type" name="action_type" required>
+                                                            <option value="1">Select</option>
+                                                            <option value="2">Create Your Own Question</option>
+                                                            <option value="3">Upload Bulk Questions</option>
+                                                        </select> 
+                                                </div>
+                                            </div>
+                                                <div id="bulk-ques">
+                                                    <div class="row">
+                                                        <div style="float:right">
+                                                            <button type="button" id="download" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Sample Excel</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <input type="file" id="sampleexcel">
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <button type="button" id="excelupload" class="btn btn-warning">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="create_own_question">
+                                                    <div class="form-group">
+                                                        
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="question-title" class="label-set">Question Title*
+                                                        </label>
+                                                        <textarea name="ques_title" id="ques_title" required></textarea>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"> 
+                                                            <label class="label-set">Level*</label>
+                                                            <select  name="level" id="level" required>
+                                                                <option value="Easy">Easy</option>
+                                                                <option value="Medium">Medium</option>
+                                                                <option value="Difficult">Dificult</option>
+                                                            </select>  
+                                                        </div>
+                                                        <div class="col-4"> 
+                                                            <label class="label-set">Question Type*</label>
+                                                            <select class="list-dt" id="quest_type" name="quest_type" required>
+                                                                <option value="Single">Single Correct</option>
+                                                                <option value="Multiple">Multiple Correct</option>
+                                                                <option value="Passage">Passage Based</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-4"> 
+                                                            <label class="label-set" for="no_option"> No Of Options*</label>
+                                                            <input type="number" id="no_option" name="no_option" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row op-display">
+
+                                                    </div>
+                                                    <div class="save-button">
+                                                        <button type="button" id="save_que" class="btn btn-warning"> Save Question</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    <div class="table-questions">
+                                         {% include './partial/partial-table.html' %}
+                                        
+
+
+                                    </div>
+
+
+                                    <input type="button"  class="previous action-button-previous" value="Previous" /> 
+                                    <input type="button" id="button-q-add" name="make_payment" class="next action-button" value="Confirm" />
+
+                                
+                            </fieldset>
+                                <fieldset>
+                                      <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>You Have Successfully Signed Up</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/validate.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/assessment.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        $('#yearPicker').datetimepicker({
+          
+    format      :   "YYYY",
+    viewMode    :   "years", 
+
+});
+    })
+
+</script>
+
+{% endblock %}

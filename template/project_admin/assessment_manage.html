@@ -1,0 +1,107 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+  .modal-content {
+    transition: 0.5s;
+    margin: 2% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+    border:solid;
+    border-color: grey;
+    max-width:465px ;
+    color: #000000;;
+   padding:20px;
+    width: 100%; /* Could be more or less, depending on screen size */
+}
+.modal { 
+  min-width: 320px;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  transition: 0.5s;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+}
+
+</style>
+<div class="table-sec">
+
+  <button class="btn btn-primary btn" style="float: right;" onclick="show()">+ Add New Account</button>
+  <table class="table table-hover" id="table" border="1">
+    <thead>
+      <tr class="table-info">
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Account Created on</th>
+        <th scope="col">Last Login</th>
+        <th  scope="col"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{u.first_name|title}}</td>
+        <td>{{u.last_name|title}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.username}}</td>
+        <td>{{u.created_at}}</td>
+        <td>{{u.last_login}}</td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div> 
+ 
+<div id="id01" class="modal">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form class="modal-content animate"  method="post">
+          {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class=" btn btn-primary">Submit</button>
+            <button type="button" class=" btn btn-danger" onclick="cancel1()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var modal = document.getElementById('id01');
+  var error = "{{error}}";
+
+  if (error){
+    document.getElementById('id01').style.display='block';
+    $('#hint_id_password1').hide();
+    
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        //document.getElementById('table').style.display ='block';
+    }
+  }
+  function show()
+  {
+    document.getElementById('id01').style.display='block';
+    $('#hint_id_password1').hide();
+    //document.getElementById('table').style.display ='none';
+  }
+
+  function cancel1(){
+      //this.window.close();
+      document.getElementById('id01').style.display='none';
+
+  }
+</script>
+{% endblock %}

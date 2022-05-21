@@ -1,0 +1,275 @@
+{% extends './base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %} 
+<style>
+	<style>
+        .kbdContrStyl {
+            width: 30px;
+            height: 218px;
+        }
+
+        .inputStyle {
+            font-size: Medium;
+            font-family: Verdana;
+            border: 1px solid gray;
+        }
+
+        .selectStyle {
+            width: 170px;
+            height: 35px;
+            font-size: 19px;
+        }
+
+        .btn {
+            width: auto;
+            height: 35px;
+        }
+
+        .heading {
+            font-size: 20px;
+            font-family: sans-serif, "Segoe UI";
+        }
+    </style>
+
+</style>
+ 
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+		<h1> Create Test </h1>
+		<section>
+
+			<h2> Test Details </h2> 
+		<form>
+			<div class="form-group">
+	    			<label class="label-set"for="exampleInputEmail1" class="label-set">Standard</label>
+	    			<select class="form-control " id="exampleFormControlSelect1">
+						      <option value="option1">Class 6</option>
+						      <option value="option2">Class 7</option>
+						      <option value="option3">Class 8</option>
+						      <option value="option4">Class 9</option>
+						     
+						  </select>
+
+	    
+	  			</div>
+
+			<div class="question-sec">
+				<h1 style="background-color: #FED684;padding: 10px;text-align: center;margin: 0px"> Question in English</h1>
+	  			<div class="form-group">
+	    			<label class="label-set"for="exampleInputEmail1">Question</label>
+	    			<textarea class="form-control" id="question" name="question" row="9"></textarea>
+	    
+	  			</div>
+	  			<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 1</label>
+	      				<input type="text" class="form-control" placeholder="Option 2">
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 2</label>
+	      				<input type="text" class="form-control" placeholder="Option 2">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 3</label>
+	      				<input type="text" class="form-control" placeholder="Option 3">
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 4</label>
+	      				<input type="text" class="form-control" placeholder="Option 4">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col-6">
+	    				<label class="label-set"for="exampleInputEmail1">Correct Option</label>
+	      				 <select class="form-control" id="exampleFormControlSelect1">
+						      <option value="option1">Option 1</option>
+						      <option value="option2">Option 2</option>
+						      <option value="option3">Option 3</option>
+						      <option value="option4">Option 4</option>
+						     
+						  </select>
+					</div>
+	    			<div class="col">
+	    				
+	    			</div>
+	    		</div>
+    	</div>
+    	<div class="question-sec">
+				<h1 style="background-color: lightblue;padding: 10px;text-align: center"> Question in Hindi</h1>
+	  			<div class="form-group">
+	    			<label class="label-set"for="exampleInputEmail1">Question</label>
+	    			<textarea class="form-control" id="questionhindi" name="questionhindi"  class="inputStyle" row="9"></textarea>
+	    		
+	  			</div>
+	  			<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 1</label>
+	      				<input type="text" class="form-control" id="hindioption1" name= "hindioption1" class="inputStyle"placeholder="Option 2">
+	      				<div id="kbdContr1" class="kbdContrStyl"></div>
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 2</label>
+	      				<input type="text" class="form-control" placeholder="Option 2" class="inputStyle" id="hindioption2" name= "hindioption2">
+	      				<div id="kbdContr2" class="kbdContrStyl"></div>
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 3</label>
+	      				<input type="text" class="form-control" placeholder="Option 3" class="inputStyle" id="hindioption3" name= "hindioption3">
+	      				<div id="kbdContr3" class="kbdContrStyl"></div>
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 4</label>
+	      				<input type="text" class="form-control" placeholder="Option 4" class="inputStyle" id="hindioption4" name= "hindioption4">
+	      				<div id="kbdContr4" class="kbdContrStyl"></div>
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col-6">
+	    				<label class="label-set"for="exampleInputEmail1" class="label-set">Correct Option</label>
+	      				 <select class="form-control" id="exampleFormControlSelect1">
+						      <option value="option1">Option 1</option>
+						      <option value="option2">Option 2</option>
+						      <option value="option3">Option 3</option>
+						      <option value="option4">Option 4</option>
+						     
+						  </select>
+					</div>
+	    			
+	    		</div>
+	    		
+    	</div>
+
+    	<div class="question-sec">
+				<h1 style="background-color: lightblue;padding: 10px;text-align: center"> Question in Punjabi</h1>
+	  			<div class="form-group">
+	    			<label class="label-set"for="exampleInputEmail1">Question</label>
+	    			<textarea class="form-control" id="questionpun" name="questionpun"  class="inputStyle" row="9"></textarea>
+	    		
+	  			</div>
+	  			<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 1</label>
+	      				<input type="text" class="form-control" id="punoption1" name= "punoption1" class="inputStyle"placeholder="Option 2">
+	      				<div id="kbdContr1" class="kbdContrStyl"></div>
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 2</label>
+	      				<input type="text" class="form-control" placeholder="Option 2" class="inputStyle" id="punoption2" name= "punoption2">
+	      				<div id="kbdContr2" class="kbdContrStyl"></div>
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 3</label>
+	      				<input type="text" class="form-control" placeholder="Option 3" class="inputStyle" id="punoption3" name= "punoption3">
+	      				<div id="kbdContr3" class="kbdContrStyl"></div>
+	    			</div>
+	    			<div class="col">
+	    				<label class="label-set"for="exampleInputEmail1">Option 4</label>
+	      				<input type="text" class="form-control" placeholder="Option 4" class="inputStyle" id="punoption4" name= "punoption4">
+	      				<div id="kbdContr4" class="kbdContrStyl"></div>
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="col-6">
+	    				<label class="label-set"for="exampleInputEmail1">Correct Option</label>
+	      				 <select class="form-control" id="exampleFormControlSelect1" name="puncorrect" id="puncorrect">
+						      <option value="option1">Option 1</option>
+						      <option value="option2">Option 2</option>
+						      <option value="option3">Option 3</option>
+						      <option value="option4">Option 4</option>
+						     
+						  </select>
+					</div>
+	    			
+	    		</div>
+	    	
+    	</div>
+    		<button type="submit" class="btn btn-primary btn-lg" style="width:100%;padding:10px;padding-bottom: 30px"> Save</button>
+    	</form>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+
+{% block javascript %}
+<script language='javascript' type='text/javascript' src="{% static 'Keyboard/js/KeyboardScript.min.js' %}"></script>
+
+<script>
+	 $( document ).ready( function ()
+        {
+           
+	//onlyAllowTypingOnKbdOpen(true);
+            var locale ='hindi';
+
+            /*
+            $('#selectLang').on("change",function(){
+                locale = $("option:selected",this).val();
+                changeKeyboardLanguage(locale);
+                if(locale == 'urdu')
+                {
+                    document.getElementById("inputBox1").style.direction = "rtl";
+                }
+                else
+                {
+                    document.getElementById("inputBox1").style.direction = "ltr";
+                }
+            });
+			*/
+            $('#questionhindi').click(function(){
+                openKeyboard(locale);
+            });
+            
+            $('#hindioption1').click(function(){
+                //closeKeyboard(locale,'questionhindi');
+                $(this).focus();
+                openKeyboard(locale);
+            });
+            $('#hindioption2').click(function(){
+                closeKeyboard();
+                openKeyboard(locale,'hindioption2');
+            });
+            $('#hindioption3').click(function(){
+                closeKeyboard();
+                openKeyboard(locale,'hindioption3');
+            });
+            $('#hindioption4').click(function(){
+                closeKeyboard();
+                openKeyboard(locale,'hindioption4');
+            });
+			
+            /*
+            $('#questionhindi').click(function(){
+                closeKeyboard();
+                curleft = 0;
+                curtop = 0;
+                openKeyboard( locale,null,'kbdContr');
+            });
+            */
+            $('#ekbd').click(function () {
+                if($('#ekbd').is(":checked"))
+                {
+                    onlyAllowTypingOnKbdOpen(false);
+                }
+                else
+                    onlyAllowTypingOnKbdOpen(true);
+            });
+        } );
+
+
+</script>
+{% endblock %}

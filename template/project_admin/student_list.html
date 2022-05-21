@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+     {% include './partialstudent.html' %}
+     {% include 'partial/messages.html' %}
+
+
+      <table class="table table-hover" id="table" border="1">
+    <thead>
+      <tr class="table-info">
+        <th scope="col">Student Id</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Enrollment id</th>
+        <th scope="col">Standard</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Assessment Given</th>
+        <th scope="col">Assigned Teacher</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for st in stu %}
+     <tr>
+        <td>{{st.id}}</td>
+     	<td>{{st.student_name}}</td>
+     	<td>{{st.enrollment_no}}</td>
+     	<td>{{st.standard}}</td>
+     	<td>{{st.address}}</td>
+     	<td>{{st.phone}}</td>
+     	<td>{{st.email}}</td>
+     	<td>{{st.user.username}}</td>
+     	<td>{{st.password}}</td>
+        <td>{{st.assessment_given}}</td>
+        <td>{{st.teacher_assigned}}</td>
+     </tr>
+
+
+     	{% endfor %}
+
+     </tr>
+ </tbody>
+</table>
+
+ 
+
+
+{% endblock %}

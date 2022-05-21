@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+     {% include './partialstudent.html' %}
+     {% include 'partial/messages.html' %}
+
+
+     <div class="container">
+     	<div class="row">
+     		<div class="col-md-6 offset-md-2">
+     			<form method="post">
+     				{% csrf_token %}
+    				{{form|crispy}}
+    				<input type="submit" class="btn btn-primary">
+    			</form>
+    		</div>
+    	</div>
+    </div>
+
+
+
+
+{% endblock %}

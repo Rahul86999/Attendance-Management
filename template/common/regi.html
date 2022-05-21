@@ -1,0 +1,405 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% block content %}
+<title>Lab Packages Registration</title>
+<style>
+  .btn-get-started1{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 43px;
+    border-bottom-left-radius: 130px;
+    border-bottom-right-radius: 43px;
+    font-family: "Montserrat", sans-serif; 
+    font-size: 21px;
+    display: block;
+    padding: 15px 32px;
+    transition: 0.5s;
+    margin: 17px;
+    color: #fff;
+    background: #f55b2d;
+  }
+  .btn-get-started1:hover{
+    color:#18d26e ;
+    background-color: white;
+  }
+  .modal { 
+  min-width: 320px;
+  /*display: none;  Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  transition: 0.5s;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.modal-content {
+  transition: 0.5s;
+  margin: 2% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+  border:solid;
+  border-color: #009688;
+  max-width:465px ;
+  color: #000000;;
+  background-color: #c5ced0;
+  width: 92%; /* Could be more or less, depending on screen size */
+}
+.row1{
+    margin: 1% 3%;
+    display:inline-flex;
+}
+.col-40{
+   width: 35%;
+}
+.col-60{
+width: 69%;
+margin-left: 2px;
+}
+#id02{
+    display: none;
+}
+.modal-footer01{
+    margin: 10px;
+    text-align: center;
+}
+input[type=radio]{
+    margin: 5px;
+}
+</style>
+  
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Lab Packages Registration </a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <!--<ol class="carousel-indicators"></ol>-->
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/2.jpg' %}" alt=""></div>
+            <div class="carousel-container"> 
+              <div class="carousel-content">            
+               <a  href="#featured-services" class="btn-get-started1 scrollto"  onclick="show()">Package 1</a>
+               <a  href="#featured-services" class="btn-get-started1 scrollto"  onclick="show1()">Package 2</a>
+                <a  href="#featured-services" class="btn-get-started1 scrollto" onclick="show2()">Package 3</a>
+			    <a  href="#featured-services" class="btn-get-started1 scrollto" onclick="show3()">Package 4</a>           
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <div id="pkg1" class="modal">
+    <form class="modal-content animate"  method="post">
+     <u> <h1>Pakage 1 Registration</h1></u>
+      <div class="row1">
+          <div class="col-40">
+            <label for="list_of_components">Electronics List Of Components</label>
+          </div> 
+          <div class="col-60">
+            <select name="electronics_list" id="sel" required >
+                <option value="Component1">Component1</option>
+                <option value="Component2">Component2</option>
+                <option value="Component3">Component3</option>
+                <option value="Component4">Component4</option>
+                <option value="Component5">Component5</option>
+            </select>
+          </div>
+      </div><br>
+      <div class="row1">
+              <div class="col-40">
+                <label for="other_offerings" >Other Offerings</label>
+              </div>
+              <div class="col-60">
+                <input type="text" id="offering" placeholder="Please Specify" required>
+              </div>
+      </div><br>
+      <div class="row1">
+        <label for="training" ><b>Is Training included</b></label>
+      </div>
+      <div class="row1">
+          <div class="col-40">
+            <label for="scope">Scope of Training</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="scope" placeholder="Scope of Training">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="days">How many Days</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="days" placeholder="No. of days">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="who_attended">Who attended Trainings</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="who_attended" placeholder="Who attended Trainings">
+          </div>
+      </div><br>
+      <div class="modal-footer01">
+          <input type="submit" id="submit" value="Submit">
+          <input type="button" id="cancel" value="Cancel" onclick="cancel1()">
+      </div>
+    </form>
+  </div>
+  
+  <div id="pkg2" class="modal">
+    <form class="modal-content animate"  method="post">
+     <u> <h1>Pakage 2 Registration</h1></u>
+      <div class="row1">
+          <div class="col-40">
+            <label for="list_of_components">3D Printer</label>
+          </div> 
+          <div class="col-60">
+            <select name="electronics_list" id="sel" required >
+                <option value="Component1">Printer 1</option>
+                <option value="Component2">Printer 2</option>
+                <option value="Component3">Printer 3</option>
+                <option value="Component4">Printer 4</option>
+                <option value="Component5">Printer 5</option>
+            </select>
+          </div>
+      </div><br>
+      <div class="row1">
+              <div class="col-40">
+                <label for="other_offerings" >Other Offerings</label>
+              </div>
+              <div class="col-60">
+                <input type="text" id="offering" placeholder="Please Specify" required>
+              </div>
+      </div><br>
+      <div class="row1">
+        <label for="training" ><b>Is Training included</b></label>
+      </div>
+      <div class="row1">
+          <div class="col-40">
+            <label for="scope">Scope of Training</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="scope" placeholder="Scope of Training">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="days">How many Days</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="days" placeholder="No. of days">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="who_attended">Who attended Trainings</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="who_attended" placeholder="Who attended Trainings">
+          </div>
+      </div><br>
+      <div class="modal-footer01">
+          <input type="submit" id="submit" value="Submit">
+          <input type="button" id="cancel" value="Cancel" onclick="cancel1()">
+      </div>
+    </form>
+  </div>
+
+  <div id="pkg3" class="modal">
+    <form class="modal-content animate"  method="post">
+     <u> <h1>Pakage 3 Registration</h1></u>
+      <div class="row1">
+          <div class="col-40">
+            <label for="list_of_components">Mechanical List Of Components</label>
+          </div> 
+          <div class="col-60">
+            <select name="electronics_list" id="sel" required >
+                <option value="Component1">Component1</option>
+                <option value="Component2">Component2</option>
+                <option value="Component3">Component3</option>
+                <option value="Component4">Component4</option>
+                <option value="Component5">Component5</option>
+            </select>
+          </div>
+      </div><br>
+      <div class="row1">
+              <div class="col-40">
+                <label for="other_offerings" >Other Offerings</label>
+              </div>
+              <div class="col-60">
+                <input type="text" id="offering" placeholder="Please Specify" required>
+              </div>
+      </div><br>
+      <div class="row1">
+        <label for="training" ><b>Is Training included</b></label>
+      </div>
+      <div class="row1">
+          <div class="col-40">
+            <label for="scope">Scope of Training</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="scope" placeholder="Scope of Training">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="days">How many Days</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="days" placeholder="No. of days">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="who_attended">Who attended Trainings</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="who_attended" placeholder="Who attended Trainings">
+          </div>
+      </div><br>
+      <div class="modal-footer01">
+          <input type="submit" id="submit" value="Submit">
+          <input type="button" id="cancel" value="Cancel" onclick="cancel1()">
+      </div>
+    </form>
+  </div>
+
+  <div id="pkg4" class="modal">
+    <form class="modal-content animate"  method="post">
+     <u> <h1>Pakage 4 Registration</h1></u>
+      <div class="row1">
+          <div class="col-40">
+            <label for="list_of_components">Safety Components</label>
+          </div> 
+          <div class="col-60">
+            <select name="electronics_list" id="sel" required >
+                <option value="Component1">Component1</option>
+                <option value="Component2">Component2</option>
+                <option value="Component3">Component3</option>
+                <option value="Component4">Component4</option>
+                <option value="Component5">Component5</option>
+            </select>
+          </div>
+      </div><br>
+      <div class="row1">
+              <div class="col-40">
+                <label for="other_offerings" >Other Offerings</label>
+              </div>
+              <div class="col-60">
+                <input type="text" id="offering" placeholder="Please Specify" required>
+              </div>
+      </div><br>
+      <div class="row1">
+        <label for="training" ><b>Is Training included</b></label>
+      </div>
+      <div class="row1">
+          <div class="col-40">
+            <label for="scope">Scope of Training</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="scope" placeholder="Scope of Training">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="days">How many Days</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="days" placeholder="No. of days">
+          </div>
+      </div><br>
+      <div class="row1">
+          <div class="col-40">
+            <label for="who_attended">Who attended Trainings</label>
+          </div>
+          <div class="col-60">
+            <input type="text" id="who_attended" placeholder="Who attended Trainings">
+          </div>
+      </div><br>
+      <div class="modal-footer01">
+          <input type="submit" id="submit" value="Submit">
+          <input type="button" id="cancel" value="Cancel" onclick="cancel1()">
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById('pkg1');
+    var modal1=document.getElementById('pkg2');
+    var modal2=document.getElementById('pkg3');
+    var modal3=document.getElementById('pkg4');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if (event.target == modal1) {
+            modal1.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if (event.target == modal2) {
+            modal2.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if(event.target==modal3){
+            modal3.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+    }
+    function show()
+    {
+        document.getElementById('pkg1').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show1()
+    {
+        document.getElementById('pkg2').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show2()
+    {
+        document.getElementById('pkg3').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show3()
+    {
+        document.getElementById('pkg4').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function cancel1(){
+        this.window.close();
+    }
+    </script>
+
+{% endblock %}

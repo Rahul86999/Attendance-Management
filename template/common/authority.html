@@ -1,0 +1,231 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Assessment Tool</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+<style>
+  .btn-get-started1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: block;
+    padding: 15px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: -3px;
+    color: #fff;
+    background: #f55b2d;
+  }
+  .btn-get-started1:hover{
+    color:#18d26e ;
+    background-color: white;
+  }
+  input[type=submit]{
+    margin-left: 6px;
+    margin-bottom: 20px;
+  }
+  input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 3px solid #ccc;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-sizing: border-box;
+        }
+.modal { 
+  min-width: 320px;
+  /*display: none;  Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  transition: 0.5s;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+}
+.modal-content1 {
+  transition: 0.5s;
+  margin: 2% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+  border:solid;
+  border-color: #009688;
+  max-width:465px ;
+  color: #000000;;
+  background-color: #c5ced0;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 92%; /* Could be more or less, depending on screen size */
+  height: 344px;
+}
+h2{
+    margin: 0 20px 0;
+    margin-bottom: 15px;
+}
+.animate{
+    animation: animatezoom 1.6s;
+}
+</style>
+  
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Authority Dashboard </a></h1><br>
+       
+      </div>
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <!--<ol class="carousel-indicators"></ol>-->
+
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/2.jpg' %}" alt=""></div>
+            <div class="carousel-container"> 
+              <div class="carousel-content">            
+                <a  href="#featured-services" class="btn-get-started1 scrollto" onclick="show();">CBSE Authority<br> Login</a><br/>
+                <a  href="#featured-services" class="btn-get-started1 scrollto" onclick="show1();">Niti Aayog <br>Login</a><br/>
+                <a href="#featured-services" class="btn-get-started1 scrollto" onclick="show2();">State Education<br> Login</a><br/>
+				        <a  href="#featured-services" class="btn-get-started1 scrollto" onclick="show3();">SCERT<br> Login</a><br/>            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <div id="cbse" class="modal">
+    <form  class="modal-content1 animate" action="Dashboard.html"" method="post">
+        <h2>CBSE Authority Login</h2>
+        <label for="username">Username</label><br>
+        <input type="text" id="user" placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="pass" placeholder="Password">
+        <input type="submit" id="login" value="Submit" >
+    </form>
+</div>
+<div id="niti" class="modal">
+    <form  class="modal-content1 animate" action="Dashboard.html"" method="post">
+        <h2>Niti Aayog</h2>
+        <label for="username">Username</label><br>
+        <input type="text" id="user" placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="pass" placeholder="Password">
+        <input type="submit" id="login" value="Submit">
+    </form>
+</div>
+<div id="state" class="modal">
+    <form  class="modal-content1 animate" action="Dashboard.html" method="post">
+        <h2>StateEducation Login</h2>
+        <label for="username">Username</label><br>
+        <input type="text" id="user" placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="pass" placeholder="Password"><br>
+        <input type="submit" id="login" value="Submit">
+    </form>
+</div>
+<div id="scert" class="modal">
+    <form  class="modal-content1 animate" action="Dashboard.html" method="post">
+        <h2>SCERT Login</h2>
+        <label for="username">Username</label><br>
+        <input type="text" id="user" placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="pass" placeholder="Password"><br>
+        <input type="submit" id="login" value="Submit">
+    </form>
+</div>  
+  <script>
+    // Get the modal
+    var modal = document.getElementById('cbse');
+    var modal1 = document.getElementById('niti');
+    var modal2=document.getElementById('state');
+    var modal3=document.getElementById('scert');
+
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if (event.target == modal1) {
+            modal1.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if (event.target == modal2) {
+            modal2.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+        else if(event.target==modal3){
+            modal3.style.display = "none";
+            document.getElementById('header').style.display ='block';
+        }
+    }
+    function show()
+    {
+        document.getElementById('cbse').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show1()
+    {
+        document.getElementById('niti').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show2()
+    {
+        document.getElementById('state').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+    function show3()
+    {
+        document.getElementById('scert').style.display='block';
+        document.getElementById('header').style.display ='none';
+    }
+</script>
+
+{% endblock %}

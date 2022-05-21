@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI ASSESSMENT </title>
+    <style>
+        html,body{
+           
+            background: url("AI_assessment/AI.png") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height:100%;
+        }
+        .menu{
+            
+            border: 3px;
+            border-radius: 40px;
+            z-index: 2;
+            position: relative;
+            display: inline-block;
+            font-weight: 400;
+            border-color: #e44747;
+            background: #e44747;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            padding:2%;
+            text-transform: uppercase;
+            text-align: center;
+            vertical-align: middle;
+            margin-top: 7%;
+        }
+        .session{
+            text-align: center;
+        }
+        #submit{
+            width: 50%;
+            margin-top: 9%;
+            margin-left: 25%;
+            padding: 4%;
+            color: white;
+            border: 2px solid #00ff5a;
+            border-radius: 20px;
+            background-color: #530f9ea6;
+        }
+        h1{
+            text-align: center;
+            margin-top: 35%;
+            color: darkorchid;
+        }
+        label{
+            margin-left: 22%;
+        }
+        #grade{
+            margin-left: 10%;
+            width: 22%;
+            margin-top: 4%;
+        }
+        @media screen and (min-width: 320px) and (max-width: 320px) {
+            
+
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="session">
+            <span class="menu">SESSION 2020-21</span><br>
+        </nav>
+        <h1>AI Assessment</h1>
+        <label for="grade" style="color: darkorchid;"><b>Select Grade:</b></label>
+        <select name="grade" id="grade" required>
+            <option value="8th">8th</option>
+            <option value="9th">9th</option>
+        </select><br>
+        <input type="button" id="submit" onclick="fun1()" value="Submit">
+    </header>
+<script>
+   function fun1(){
+       location.replace("session.html");
+   }
+</script>
+</body>
+</html>

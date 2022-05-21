@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<h3> You have {{count}} upcoming Test</h3>
+
+<div class="container">
+	<div class="row">
+		{% for i in upcoming %}
+		<div class="col-md-6">
+			
+			<div class="card">
+	  			<div class="card-header">
+	    			<b>{{i.test_paper.subject_name}}</b>
+	  			</div>
+			<div class="card-body">
+			    <h5 class="card-title"><b>Date and Time: </b>{{i.test_datetime}}</h5>
+			    <h5 class="card-title"><b>Duration: </b>{{i.duration}} minutes</h5>
+			    <p class="card-text">Be on time or you'll miss some crucial time. <br>
+
+			    </p>
+				<span style="text-align:center;color:blue"><b>All The Best!!! </b></span>
+				<br>
+			    <a href="{% url 'cancel_test' i.id %}" class="btn btn-primary">Cancel Test</a>
+			</div>
+		</div>
+
+	</div>		
+	{% endfor %}
+</div>
+</div>
+
+
+{% endblock %}

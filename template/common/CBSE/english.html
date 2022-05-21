@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+ <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
+        <title>Pre-Assessment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style2.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Codrops top bar -->
+            <div class="codrops-top">             
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+            <header>
+                <h1>Welcome to<span> Student</span></h1>
+				<nav class="codrops-demos">					
+					<a href="index2.html" class="current-demo">Pre-Assessment</a>					
+				</nav>
+            </header>
+			
+            <section>				
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                                <h1>Question-1</h1> 
+									<audio controls style="width:70%">
+									<source src="q1.mp3" type="audio/mp3">
+								</audio>
+                                <p> 
+                                    <label> Which device can be used to store charge? </label>
+                                </p>                                 
+								<input type="radio" name="option" value="size" style="margin-top:5px;">  Transistor</br>
+								<input type="radio" name="option" value="Gravity" style="margin-top:10px;"> Diode</br>
+								<input type="radio" name="option" value="Functionality" style="margin-top:10px;"> Capacitor</br>
+								<input type="radio" name="option" value="Quality" style="margin-top:10px;"> Resistor</br></br>
+                                <p class="change_link">								
+									<a href="#toregister" class="to_register">Submit</a>
+									<a href="#toregister" class="to_register">Skip</a>										
+								</p>
+                            </form>
+                        </div>
+						<div id="register" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                                <h1> Question-2</h1> 
+								<audio controls style="width:70%" >
+									<source src="q2.mp3" type="audio/mp3">
+								</audio>
+                                <p> 
+                                    <label>Blue is what number on the resistor color code?</label>
+                                </p>
+								
+                                <p> 
+								<input type="radio" name="option" value="size" style="margin-top:5px;">  4</br>
+								<input type="radio" name="option" value="Gravity" style="margin-top:10px;"> 1</br>
+								<input type="radio" name="option" value="Functionality" style="margin-top:10px;"> 2</br>
+								<input type="radio" name="option" value="Quality" style="margin-top:10px;"> 6</br></br>
+                                </p>
+                                <p class="change_link">  
+									<a href="#tologin" class="to_register">Back </a>
+									<a href="#tologin" class="to_register">Submit </a>
+									<a href="#tologin" class="to_register">Skip </a>
+								</p>
+                            </form>
+                        </div>	
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>

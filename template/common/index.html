@@ -1,0 +1,179 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">AI Assessment Tool</a></h1>
+        
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
+    </div>
+  </header><!-- #header -->
+
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/1.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <a href="{% url 'choose_reg' %}" href="#featured-services" class="btn-get-started scrollto" onclick="show_items()">School<br>Login</a>
+                <a  href="#featured-services" class="btn-get-started scrollto">Corporate/Foundation<br>Login</a>
+                <a href="{% url 'authority_dash' %}" href="#featured-services" class="btn-get-started scrollto">Authority<br>DashBoard</a>
+                <a href="{% url 'assessment' %}" href="#featured-services" class="btn-get-started scrollto">Assessment<br>Tool</a> 
+              </div>
+            </div>
+          </div>
+          </div>   
+        </div>
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+          <p>ATL is a methodology of Central Government of India, is basically a workspace which will help young minds to shape their creative ideas, innovative skills through build-it-yourself mode. It is a stage towards another India. Atal Innovation Mission (AIM) including Self-Employment and Talent Utilization (SETU) is Government of India’s undertaking to promote a culture of development and business. Atal Tinkering Labs are devoted works spaces where students (Class sixth to Class twelfth) learn advancement aptitudes and create thoughts that will proceed to change India. The labs are fuelled to familiarize students with cutting edge hardware, for example, 3D printers, mechanical technology and gadgets improvement devices, IoT and sensors and so on.</p>
+        </header>
+
+        <div class="row about-cols">
+
+          <div class="col-md-4 wow fadeInUp">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-mission.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Our Mission</a></h2>
+              <p>
+                ATL is a workspace where young minds can give shape to their ideas through hands-on do-it-yourself mode and learn innovation skills.The vision is to cultivate 1 Million children in India as Neoteric Innovators.
+                 The Government of India has setup the Atal Innovation Mission (AIM) at NITI Aayog.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-plan.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Our Plan</a></h2>
+              <p>
+                ATAL Tinkering Lab Objectives. The objective of this plan is to encourage interest, innovation and creative ability in youthful minds and establish aptitudes,
+                 for example, structure attitude, computational reasoning, versatile learning, physical figuring and so on.  ATAL Innovation Mission. 
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/about-vision.jpg' %}" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Our Vision</a></h2>
+              <p>
+                With a vision to 'Cultivate one Million children in India as Neoteric Innovators', Atal Innovation Mission (AIM) under NITI Aayog is establishing Atal Tinkering.  
+                <br><br><br><br>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+          <p>If you have any query and suggestion, Please do contact us</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>303 MoolChand Tower Khasra No 587<br> I Shiv mandir, Sector 22,<br> Noida, Uttar Pradesh - 201301</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="+91 9098042511">+91 9098042511</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:humanresource@codeglobal.in">humanresource@codeglobal.in</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+{% endblock %}

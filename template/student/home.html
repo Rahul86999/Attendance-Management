@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+{% block content %}
+<style>
+#days,#hours,#minutes,#seconds{
+	font-size: 40px
+}
+</style>
+<div class="container">
+	<div class="row">
+
+		<div class="col-5 offset-4">
+
+			{% if count_upcoming > 0 %}
+	
+
+
+			<h2>{{request.user.first_name|title}}, Next Test in </h2><br>
+
+			<div id="timer">
+			  <span id="days"></span>days
+			  <span id="hours"></span>hours
+			  <span id="minutes"></span>minutes
+			  <span id="seconds"></span>seconds
+			</div>
+			{% else %}
+			<h2> {{request.user.first_name|title}},you have no upcoming Test</h2>
+
+			{% endif %}
+{% endblock %}

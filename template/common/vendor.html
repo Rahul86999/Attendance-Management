@@ -1,0 +1,270 @@
+{% extends './base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI Assessment Tool</title>
+</head>
+
+<style>
+    
+ h1{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #4e342e;
+    font-size: 28px;
+    }
+ input[type=text],input[type=number],input[type=email]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+input[type=reset],input[type=submit],input[type=button]
+{
+    background-color: #4CAF50;
+    color: white;
+    padding: 3% 3%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: auto;
+    width: 15%;
+}
+input[type=checkbox]{
+    margin-left: 5%;
+}
+.container {
+  border-radius: 0px;
+  background-color: #f5f5f5;
+  padding: 2px;
+  font-size: 18px;
+  margin: 0% auto 0% auto;
+  max-width: 512px;
+  border-style: solid;
+  border-radius: 5px;     
+  background-color: #f5f5f5;
+}
+.col-25 {
+  width: 40%;
+  margin-top: 6px;
+ 
+}
+.col-75 {
+  width: 60%;
+  margin-top: 6px;
+  margin-right: -15px;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+.row {
+    width: 100%;
+    display: inline-flex;
+    
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+   input[type=submit],input[type=button],input[type=reset] {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 4px;
+  }}
+ input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover{
+     background-color: cadetblue;
+     color: white;
+ }
+  .orderedlist{
+    width: 84%;
+    display: block;
+}
+.footer1{
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    border-color: #f2f2f2;
+    padding: 0px;
+    margin-bottom:20px;
+}
+.chechbox{
+    margin-left: 5%;
+}
+</style>
+<script type="text/javascript">
+    function submit1()
+    {
+      location.replace("vendor2.html")
+    }
+    function win_close()
+    {
+      location.replace("schoolreg.html");
+    }
+   
+    function reset1()
+    {
+    document.getElementById("option1").checked=false;
+    document.getElementById("option2").checked=false;
+    document.getElementById("chk1").checked=false;
+    document.getElementById("chk2").checked=false;
+    document.getElementById("chk3").checked=false;
+    document.getElementById("chk4").checked=false;
+    document.getElementById("order").value="";
+    document.getElementById("com_name").value="";
+    document.getElementById("incorporation_id").value="";
+    document.getElementById("address").value="";
+    document.getElementById("number").value="";
+    document.getElementById("email").value="";
+    document.getElementById("name").value="";
+    document.getElementById("email1").value="";
+    document.getElementById("number1").value="";
+    }
+</script>
+<body>
+        <div class="container" id="myform">
+            <h1><u>Vendor Registration</u></h1>
+            <form method="POST">
+              
+            <div class="row">
+                <div class="col-25">
+                  <label for="is_order">1.  Is order place through Gem?</label>
+                </div>
+                <div class="col-75">
+                  <input type="radio"  name="option" value="yes">Yes
+                  <input type="radio"  name="option" value="no">No
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="order_no">2.  Order No.</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="order" name="order" placeholder=" Your order number...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="enrolled">3. Enrolled for which package</label>
+                </div>
+             </div>
+             
+                
+                  <input type="checkbox" name="check_option" value="p1" id="chk1">P1</br>
+                  <input type="checkbox" name="check_option" value="p2" id="chk2">P2</br>
+                  <input type="checkbox" name="check_option" value="p3"id="chk3">P3</br>
+                  <input type="checkbox" name="check_option" value="p4"id="chk4">P4</br>
+                
+             
+             <div class="row">
+                <div class="col-25">
+                  <label for="company_name">4. Company name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="com_name" name="com_name" placeholder=" Company Name...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="incorporation_id">5. Company Incorporation ID</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="incorporation_id" name="incorporation_id" placeholder=" Company Incorporation Id...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="address">6. Address</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="address" name="address" placeholder=" Address...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="contact">7. Contact Details</label>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <ul>
+                      <li>Number</li>
+                  </ul>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="number" name="number" placeholder=" Number...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <ul>
+                     <li>Email ID</li>
+                  </ul>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="email" name="email" placeholder=" Email ID...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <label for="contact">8. Person Incharge</label>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">
+                  <ul>
+                      <li>Name</li>
+                 </ul>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="name " name="name" placeholder=" Name...">
+                </div>
+             </div>
+             <ul>
+             <div class="row">                
+                <div class="col-25">             
+                      <li>Contact Details</li>           
+                </div>
+             </div>
+             <div class="orderedlist">
+             <ol>
+             <div class="row">
+                <div class="col-25">   
+                      <li>Number</li>       
+                </div>
+                <div class="col-75">
+                  <input type="text" id="number1" name="number1" placeholder=" Number...">
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-25">  
+                      <li>Email ID</li>
+                  </div>
+                <div class="col-75">
+                  <input type="text" id="email1" name="email1" placeholder=" Email ID...">
+                </div>
+               </div></ol> 
+             </div>
+            </ul> 
+            <div class="footer1">
+              <input type="reset" name="reset" value="RESET" onclick="reset1();">
+              <input type="submit" name="submit" value="SUBMIT" onclick="submit1();" >
+              <input type="button" name="cancel" value="CANCEL" onclick="win_close();">
+          </div>  
+        </div>
+  </form>
+</body>
+</html>
+
+{% endblock %}

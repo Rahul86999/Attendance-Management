@@ -1,0 +1,204 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body{
+        background: #0000006b;
+    }
+  .btn-get-started1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: block;
+    padding: 15px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #f55b2d;
+  }
+  .btn-get-started1:hover{
+    color:#18d26e ;
+    background-color: white;
+  }
+  .modal-content01 {
+  transition: 0.5s;
+  margin: 93px auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+  height: 1050px;
+  border-color: #009688;
+  max-width:465px ;
+  color: #000000;;
+  background-color: #c5ced0;
+  width: 97%; /* Could be more or less, depending on screen size */
+}
+.modal1 { 
+  transition: 0.5s;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
+  padding-bottom: 10px;
+}
+.row1{
+    margin: 1% 3%;
+    width: 100%;
+}
+.col-40{
+   width: 100%;
+}
+.col-60{
+width: 100%;
+margin-left: 2px;
+}
+
+.modal-footer01{
+    margin: 10px;
+    text-align: center;
+}
+input[type=text]{
+    width: 70%;
+}
+</style>
+</head>
+
+<body>
+    <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Mentor of Change</a></h1>
+        
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
+    </div>
+  </header><!-- #header -->
+
+   <!--==========================
+    Intro Section
+  ============================-->
+  <div id="id01" class="modal1">
+    <form class="modal-content01 animate"  method="post">
+       <div class="row1">
+            <div class="col-40">
+                <label for="Name of Mentor">Name of the Mentor</label>
+            </div> 
+            <div class="col-60">
+                <input type="text" id="name_of_mentor" placeholder="Name of Mentor">
+            </div>
+        </div><br>
+        <div class="row1">
+                <div class="col-40">
+                    <label for="Mentor ID">Mentor ID(Assigned by NITI Aayog)</label>
+                </div>
+                <div class="col-60">
+                    <input type="text" id="mentor_id" placeholder="Mentor ID">
+                </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Who appointed">Who appointed</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="who_appointed" placeholder="Who appointed">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Educational Background">Educational Background</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="edu_background" placeholder="Educational Background">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Professional Background">Professional Background</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="prof_background" placeholder="Professional Background"> 
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Conatct Details">Conatct Details</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="contact_details" placeholder="Contact Details">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Address">Address</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="address" placeholder="Address">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Current Company">Which Company is she/he currently working on</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="curr_company" placeholder="Current Company">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Current Profile">Which profile is she/he working on</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="curr_profile" placeholder="Current Profile">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Number of days for school visits">How many days does she/he visits schools</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="school_visits" placeholder="No. of days for school visits">
+            </div>
+        </div><br>
+        <div class="row1">
+            <div class="col-40">
+                <label for="Specialization and Skills">Specialization and Skills</label>
+            </div>
+            <div class="col-60">
+                <input type="text" id="spec&skills" placeholder="Specialization and Skills">
+            </div>
+        </div><br>
+        <div class="modal-footer01">
+            <input type="submit" id="submit" value="Submit">
+            <input type="button" id="cancel" value="Cancel" onclick="cancel1()">
+        </div>
+    </form>
+</div>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+ <!-- JavaScript Libraries -->
+ <script src="lib/jquery/jquery.min.js"></script>
+ <script src="lib/jquery/jquery-migrate.min.js"></script>
+ <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="lib/easing/easing.min.js"></script>
+ <script src="lib/superfish/hoverIntent.js"></script>
+ <script src="lib/superfish/superfish.min.js"></script>
+ <script src="lib/wow/wow.min.js"></script>
+ <script src="lib/waypoints/waypoints.min.js"></script>
+ <script src="lib/counterup/counterup.min.js"></script>
+ <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+ <script src="lib/isotope/isotope.pkgd.min.js"></script>
+ <script src="lib/lightbox/js/lightbox.min.js"></script>
+ <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+ <!-- Contact Form JavaScript File -->
+ <script src="contactform/contactform.js"></script>
+
+ <!-- Template Main Javascript File -->
+ <script src="js/main.js"></script>
+</body>
+</html>
+
+{% endblock %}

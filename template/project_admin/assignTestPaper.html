@@ -1,0 +1,127 @@
+{% extends './base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+ {% include 'partial/messages.html' %}
+
+<div class="container">
+	
+	<h4> Students Details</h4>
+	<form method ="POST">
+		{% csrf_token %}
+	<div class="row">
+		<div class="col-md-2">
+			
+			<select class="form-control" name="wise" id="wise">
+				<option value="selection"> Select Selection</option>
+				<option value="School Student"> School Student</option>
+				<option value="e-learning Student">e-learning Student</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="name" name="sc_name">
+				
+				<option value="" >School Name</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="class" name="st_class">
+				
+				<option value="studentwise">Class</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="no_students" name='no_students'>
+				<option value="">Select Students</option>
+				<option value="all_student">All Students</option>
+				<option value="selectstu">Students Name Wise</option>
+
+			</select>
+		</div>
+
+		<div class="col-md-2">
+			<select class="form-control" id="stu_name" name="stu_name">
+				
+				<option value="studentwise">Student Names</option>
+				
+
+			</select>
+		</div>
+	</div>
+	<h4> Test Paper Details</h4>
+	<div class="row">
+		<div class="col-md-2">
+			<select class="form-control" id="year" name="year">
+				
+				{% for i in year %}
+				<option value="{{i.test_year}}">{{i.test_year}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="paper_standard" name="paper_standard">
+				
+				<option>Test Paper Standard</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="quater" name="quater">
+				<option>Select Quater</option>
+				<option value="Quater1">Quater 1</option>
+				<option value="Quater2">Quater 2</option>
+				<option value="Quater3">Quater 3</option>
+				<option value="Quater4">Quater 4</option>
+				<option value="nonatl">Non ATL</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<select class="form-control" id="package" name="package">
+				<option >Select Package</option>
+				<option value="P1">Package 1</option>
+				<option value="P2">Package 2</option>
+				<option value="P3">Package 3</option>
+				<option value="P4">Package 4</option>
+				<option value="nonatl">Non ATL</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="btn-warning" id="paper_ava">Check Test Paper Availability</button>
+		</div>
+	</div>
+	<h4> Time and Duration Details</h4>
+	<div class="row">
+
+		<div class="col-md-3" id="date">
+			<input type="datetime-local" class="form-control" required name="date">
+		</div>
+		
+		<div class="col-md-3" id="duration"> 
+			<input type="number" class="form-control" placeholder="Duration" required name="duration">
+		</div>
+		
+		<div class="col-md-3">
+			<input type="submit" value="Save" class="btn btn-primary">
+		</div>
+		<div>
+			<p id="p_ava"></p>
+			
+		</div>
+	</div>
+</form>
+</div>
+
+</div>
+
+
+{% endblock %}

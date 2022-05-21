@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vendor Registration</title>
+</head>
+<style>
+    body{
+        background-color: whitesmoke;
+        margin: 0px;
+        border: ridge;
+        height: 667px;
+        padding: 44px;
+        transition: 0.5;
+
+    }
+p{
+    color: red;
+    font-size: 31px;
+    font-family: monospace;
+}
+input[type=button]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: auto;
+}
+</style>
+
+<body>
+    <p>Registered Successfully</p>
+    </br></br>
+    Do you want to add more vendor(if Yes, Click +)
+    </br>
+    </br>
+    <input type="button" name="add" value="+" onclick="return_back();">
+    <input type="button" name="cancel" value="CANCEL" onclick="back();">
+    
+</body>
+<script>
+function return_back()
+{
+    location.replace("/vendor/");
+}
+function back()
+{
+    location.replace("/schreg/");
+}
+</script>
+</html>

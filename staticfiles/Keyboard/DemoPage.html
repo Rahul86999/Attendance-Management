@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Inscript Keyboard</title>
+    <script language='javascript' type='text/javascript' src='js/jquery.min.js'></script>
+    <script language='javascript' type='text/javascript' src='js/KeyboardScript.min.js'></script>
+
+    <script type="text/javascript">
+        $( document ).ready( function ()
+        {
+            onlyAllowTypingOnKbdOpen(true);
+            var locale = $('#selectLang').val();
+
+            $('#selectLang').on("change",function(){
+                locale = $("option:selected",this).val();
+                changeKeyboardLanguage(locale);
+                if(locale == 'urdu')
+                {
+                    document.getElementById("inputBox1").style.direction = "rtl";
+                }
+                else
+                {
+                    document.getElementById("inputBox1").style.direction = "ltr";
+                }
+            });
+
+            $('#fkbd').click(function(){
+                closeKeyboard();
+                openKeyboard(locale);
+            });
+            $('#fxkbd').click(function(){
+                closeKeyboard();
+                curleft = 0;
+                curtop = 0;
+                openKeyboard( locale,null,'kbdContr');
+            });
+            $('#ekbd').click(function () {
+                if($('#ekbd').is(":checked"))
+                {
+                    onlyAllowTypingOnKbdOpen(false);
+                }
+                else
+                    onlyAllowTypingOnKbdOpen(true);
+            });
+        } );
+    </script>
+    <style>
+        .kbdContrStyl {
+            width: 530px;
+            height: 218px;
+        }
+
+        .inputStyle {
+            font-size: Medium;
+            font-family: Verdana;
+            border: 1px solid gray;
+        }
+
+        .selectStyle {
+            width: 170px;
+            height: 35px;
+            font-size: 19px;
+        }
+
+        .btn {
+            width: auto;
+            height: 35px;
+        }
+
+        .heading {
+            font-size: 20px;
+            font-family: sans-serif, "Segoe UI";
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 10px;">
+        <div id="heading" style="text-align:center">
+            <h1>Inscript Keyboard</h1>
+        </div>
+        <br />
+        <div id="upperMenu">
+            Select Language &nbsp;&nbsp;
+            <select id="selectLang" class="selectStyle">
+                <option value="hindi">Hindi</option>
+                <option value="urdu">Urdu</option>
+                <option value="marathi">Marathi</option>
+                <option value="gujarati">Gujarati</option>
+                <option value="bengali">Bengali</option>
+                <option value="punjabi">Punjabi</option>
+                <option value="malayalam">Malayalam</option>
+                <option value="kannada">Kannada</option>
+                <option value="assamese">Assamese</option>
+                <option value="bodo">Bodo</option>
+                <option value="dogri">Dogri</option>
+                <option value="kashmiridev">Kashmiri</option>
+                <option value="konkani">Konkani</option>
+                <option value="maithili">Maithili</option>
+                <option value="manipuri">Manipuri</option>
+                <option value="meeteimayek">MeeteiMayek</option>
+                <option value="nepali">Nepali</option>
+                <option value="olchiki">OlChiki</option>
+                <option value="oriya">Oriya</option>
+                <option value="sanskrit">Sanskrit</option>
+                <option value="santali">Santali</option>
+                <option value="sindhiDev">SindhiDev</option>
+                <option value="tamil">Tamil</option>
+                <option value="telugu">Telugu</option>
+            </select>&nbsp;&nbsp;
+            <input id="fkbd" class="btn" type="button" value="Open Floating Keyboard" />&nbsp;&nbsp;
+            <input id="fxkbd" type="button" class="btn" value="Open Fixed Position Keyboard" />&nbsp;&nbsp;
+            Enable typing without keyboard : &nbsp;<input id="ekbd" type="checkbox" />
+        </div>
+        <br />
+        <div id="layout">
+            <textarea rows="2" cols="10" id="inputBox1" class="inputStyle" style="width:98%; height:200px;" placeholder="Enter Text"></textarea><br />
+        </div>
+    </div>
+    <br/>
+    <div id="kbdContr" class="kbdContrStyl"></div>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Dashboard</title>
+    <style>
+        header{
+            font-size: 25px;
+            font-family: sans-serif;
+            font-weight: 600;
+            padding: 6px;
+            background-color: cadetblue;
+            width: 100%;
+            color: #3c0909;
+        }
+        body{
+            margin: 0%;
+            background-image: url("images/call-to-action-bg.jpg");
+            color: navajowhite;
+        }
+        section{
+            margin-left: 10%;
+            padding: 2% 0%;
+            text-align: center;
+        }
+        button{
+            font-size: 18px;
+            font-family: serif;
+        }
+        .record{
+            padding: 2px;
+            text-align: center;
+            color: #F5F5F5;
+            display: none;
+        }
+        table{
+            width: 100%;
+            text-align: center;
+            border-color: black;
+            border-style: solid;
+            border: 1px;
+            border-spacing: 0px;
+        }
+       .row{
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            text-align: left;
+       }
+       .col25{
+           width: 35%;
+       }
+       .col75{
+           width: 73%;
+       }
+       input[type=button]{
+        display: block;
+        font-size: larger;
+        margin-left: 70px;
+        font-family: fantasy;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Welcome</p>
+    </header>
+    <section>
+        
+        <div class="row">
+            <div class="col25">
+                <p>Country</p>
+            </div>
+            <div class="col75">
+                <select id="country" onclick="s2()" style="width: 150px;">
+                   <option>Please select</option>
+                    <option value="India">India</option>
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="America">America</option>
+                    <option value="Russia">Russia</option>
+                    <option value="France">France</option>
+                    <option value="Nepal">Nepal</option>
+                </select>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col25">
+                <p>State</p>
+            </div>
+            <div class="col75">
+                <select id="states" onclick="s1()" style="width: 150px;" disabled>
+                    <option>Please Select </option>
+                    <option value="Madhya">Madhya Pradesh</option>
+                    <option value="Andhra">Andhra Pradesh</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Tamil">Tamil Naidu</option>
+                </select>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col25">
+                <p>District</p>
+            </div>
+            <div class="col75">
+                <select id="options" disabled onclick="dist()" style="width: 150px;">
+                    <option>Please select </option>
+                </select>
+               
+            </div>
+        </div><br><br>
+        <div class="row">
+            <input type="button" name="show" value="Show Record" id="show" onclick="onshow();" style="display: none;">
+        </div>
+
+    </section>
+    <div class="record" id="record">
+<div class="row" >  
+                <p>Total number of school registered =</p> 
+        </div>
+        <table border ="1" >
+            <tr>
+               
+                <td colspan="7" id="schdet">School Details</td>
+            </tr>
+            <tr>
+                <td rowspan="2" >School name</td>
+                <td rowspan="2">Registration School ID</td>
+                <td colspan="4">Address</td>
+                <td rowspan="2">Affiliated</td>
+            </tr>
+            <tr>
+                <td>Country</td><td>State</td><td>District</td><td>Pincode</td>
+            </tr>
+            <tr>
+                <td>....</td><td>....</td><td>....</td><td>....</td><td>....</td><td>....</td><td>....</td>
+            </tr>
+        </table><br><br>
+        <table border ="1" >
+            <tr>
+                <td colspan="4" id="schATL">School ATL Incharge</td>  
+            </tr>
+            <tr>
+                <td>Person name</td>
+                <td>Person Unique ID</td>
+                <td>Number</td>
+                <td>Email</td>
+            </tr>     
+            <tr>
+                <td>....</td><td>....</td><td>....</td><td>....</td>
+            </tr>    
+        </table><br><br>
+        <table border ="1">
+            <tr>
+                <td colspan="5"id="status">ATL Establishment Status</td> 
+            </tr>
+             <tr>
+                <td>Date</td>
+                <td>Person Registered name</td>
+                <td>Number</td>
+                <td>Qualified Date</td>
+                <td>Fund Received</td>
+             </tr>      
+             <tr>
+                <td>....</td><td>....</td><td>....</td><td>....</td><td>....</td>
+             </tr>         
+        </table><br><br>
+        <table border ="1">
+            <tr>
+                <td colspan="3"id="teacher">Teacher Nominated for ATL</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Contact Number</td>
+                <td>Email</td>
+            </tr>             
+            <tr>
+                <td>....</td><td>....</td><td>....</td>
+                
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script>
+    function s1(){
+     var states = document.getElementById("states");
+        for(i=0;i<states.length;i++)
+        { 
+            if(states[i].selected==true)
+            {
+               var x=states[i].value;
+                if(x=="Haryana")
+                {       
+                    document.getElementById("options").disabled = false; 
+                    var punjab=["Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Hisra","Jhajjar","Kaithal","Karnal","Kurukshetra",
+                                "Mahendragarh","Nuh", "Palwal","Panchkula"," Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamunanagar"];       
+                    var daySelect = document.getElementById("options");
+                    document.getElementById('options').innerText = null
+                    for(var i=0;i<punjab.length;i++)
+                    {
+                        var myOption = document.createElement("option");
+                        myOption.text = punjab[i];
+                        daySelect.add(myOption);  
+                    }
+                }
+                if(x=="Punjab")
+                { 
+                    document.getElementById("options").disabled = false; 
+                    var punjab=["Amritsar","Barnala","Bhatinda","Faridkot","Fatehgarh Sahib","Firozpur","Fazilka","Gurdaspur","Hosiarpur","Jalandhar",
+                                "Kapurthala","Ludhiana", "Mansa","Moga","Sri Muktsar Sahib","Pathankot","Patiala","Rupnagar","Sangrur","Taran Taran"];       
+                    var daySelect = document.getElementById("options");
+                    document.getElementById('options').innerText = null
+                    for(var i=0;i<punjab.length;i++)
+                    {
+                        var myOption = document.createElement("option");
+                        myOption.text = punjab[i];
+                        daySelect.add(myOption);  
+                    }
+                   
+                }
+            }
+        }
+    }
+    function s2()
+    {
+        var states = document.getElementById("country");
+        for(i=0;i<states.length;i++)
+        { 
+            if(states[i].selected==true)
+            {
+                x=states[i].value;
+               
+                if(x=="India")
+                {
+                    document.getElementById("states").disabled = false;
+                }
+            }
+        }    
+    }
+    function dist()
+    {
+        var states = document.getElementById("states");
+        for(i=0;i<states.length;i++)
+        { 
+            if(states[i].selected==true)
+            {
+                document.getElementById("show").style.display = "block";
+            }
+        }
+    }
+    function onshow()
+    {
+       document.getElementById("record").style.display = "block";
+    }
+    
+    
+</script>
+</html>

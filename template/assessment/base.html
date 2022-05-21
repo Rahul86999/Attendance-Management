@@ -1,0 +1,179 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Assessment Dashboard {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/assessment.css' %}">
+
+    </head>
+
+<body>
+<header class="header-fixed">
+
+  <div class="header-limiter">
+
+    <h1>
+      <!-- Normal -->
+      <!--
+        <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2">
+          <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+      -->         
+      <!-- Phone Button-->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="menu-toggle">
+          <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+
+        Assessment <span>Manage </span>
+    </h1>
+    <!--      
+    <nav >
+      <a href="#">Home</a>
+      <a href="#" class="selected">Blog</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Faq</a>
+      <a href="#">Contact</a>
+      
+
+    </nav>
+  -->
+
+  </div>
+
+</header>
+<div id="wrapper">
+  <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav nav-pills nav-stacked" id="menu" style = "padding-top: 20px">
+        <li class="active">
+          <a href="{% url 'assessment_index' %}">
+            <span class="fa-stack fa-lg pull-left">
+              <span class="glyphicon glyphicon-dashboard"></span></span>
+              Dashboard
+          </a>
+               <!--
+               <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                  <li><a href="#">link1</a></li>
+                  <li><a href="#">link2</a></li>
+               </ul>
+             -->
+        </li>
+        <li>
+          <a href="{% url 'add_test' %}">
+            <span class="fa-stack fa-lg pull-left">
+                <span class="glyphicon glyphicon-plus fa-stack-1x"></span></span>Create New Test
+          </a>
+              
+        </li>
+        <li>
+          <a href="{% url 'edit_test' %}">
+            <span class="fa-stack fa-lg pull-left">
+                <span class="glyphicon glyphicon-pencil fa-stack-1x"></span></span>Edit Test
+          </a>
+              
+        </li>
+       <!--
+        <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview</a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                  <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
+                  <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link2</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
+            </li>
+            <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
+            </li>
+            <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services</a>
+            </li>
+            <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
+            </li>-->
+            <li>
+               <a href="{% url 'logout_admin' %}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Logout</a>
+            </li>
+         </ul>
+      </div>
+
+      <!-- /#sidebar-wrapper -->
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+          {% block content %}
+
+          {% endblock %}
+
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- /#page-content-wrapper -->
+   </div>
+   <!-- /#wrapper -->
+   <!-- jQuery -->
+   
+
+
+</body>
+
+
+
+
+<script src="{% static 'lib/jquery/jquery.min.js' %}"></script>  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>   
+
+<script src="{% static 'js/dashboard.js' %}"></script>   
+<script>
+  $(document).ready(function(){
+
+    var showHeaderAt = 150;
+
+    var win = $(window),
+        body = $('body');
+
+    // Show the fixed header only on larger screen devices
+
+    if(win.width() > 400){
+
+      // When we scroll more than 150px down, we set the
+      // "fixed" class on the body element.
+
+      win.on('scroll', function(e){
+
+        if(win.scrollTop() > showHeaderAt) {
+          body.addClass('fixed');
+        }
+        else {
+          body.removeClass('fixed');
+        }
+      });
+
+    }
+
+  });
+
+</script>
+
+
+
+{% block javascript %}
+{% endblock %}
+
+</html>
